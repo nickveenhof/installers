@@ -14,8 +14,6 @@ class MauticInstaller extends BaseInstaller
     private function getDirectoryName()
     {
         $extra = $this->package->getExtra();
-        var_dump($extra);
-
         if (!empty($extra['install-directory-name'])) {
             return $extra['install-directory-name'];
         }
@@ -41,8 +39,6 @@ class MauticInstaller extends BaseInstaller
 
         if ($vars['type'] == 'mautic-plugin') {
             $directoryName = $this->getDirectoryName($vars['name']);
-            var_dump($vars);
-            var_dump($directoryName);
             $vars['name'] = $directoryName;
         }
 
