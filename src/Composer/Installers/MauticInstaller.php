@@ -11,21 +11,16 @@ class MauticInstaller extends BaseInstaller
         'core'             => 'app/',
     );
 
-    /**
-     * @param PackageInterface $package
-     *
-     * @return string
-     */
-    private function getDirectoryName(PackageInterface $package)
+    private function getDirectoryName()
     {
-        $extra = $package->getExtra();
+        $extra = $this->package->getExtra();
         var_dump($extra);
 
         if (!empty($extra['install-directory-name'])) {
             return $extra['install-directory-name'];
         }
 
-        return $this->toCamelCase($package->getPrettyName());
+        return $this->toCamelCase($this->package->getPrettyName());
     }
 
     /**
